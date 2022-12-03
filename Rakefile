@@ -56,8 +56,12 @@ def source_file(day)
           @data = data
         end
 
-        def run
-          puts "Not yet implemented!"
+        def part_one
+          "Not yet implemented!"
+        end
+
+        def part_two
+          "Not yet implemented!"
         end
       end
     RUBY
@@ -78,7 +82,9 @@ def spec_file(day)
         let(:data) { File.read("spec/data/#{day_underscore(day)}.txt").split("\n") }
         subject { described_class.new(data) }
 
-        it "needs specs"
+        it "successfully solves part one"
+
+        it "successfully solves part two"
       end
     RUBY
   end
