@@ -19,7 +19,15 @@ class DayTwo
     end
 
     def beats?(other)
-      other.move == BEATS[move]
+      other.move == defeats
+    end
+
+    def defeats
+      BEATS[move]
+    end
+
+    def defeated_by
+      BEATS.invert[move]
     end
   end
 end

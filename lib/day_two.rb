@@ -15,15 +15,15 @@ class DayTwo
   end
 
   def part_two
-    "Not yet implemented!"
+    parsed(strategy: Strategy::Outcome).collect(&:score).sum
   end
 
   private
 
-  def parsed
+  def parsed(strategy: Strategy)
     @parsed ||= data.collect do |line|
       moves = line.split(/\s/, 2)
-      strat = Strategy.new(*moves)
+      strat = strategy.new(*moves)
       Round.new(strat.their_move, strat.my_move)
     end
   end
