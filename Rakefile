@@ -3,6 +3,11 @@ require "active_support/all"
 require "humanize"
 require "pry"
 
+require "zeitwerk"
+loader = Zeitwerk::Loader.for_gem(warn_on_extra_files: false)
+loader.push_dir("#{__dir__}/lib")
+loader.setup
+
 require "rspec/core/rake_task"
 RSpec::Core::RakeTask.new(:spec)
 
