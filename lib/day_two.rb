@@ -6,15 +6,6 @@
 class DayTwo
   attr_reader :data
 
-  CODE = {
-    A: :rock,
-    B: :paper,
-    C: :scissors,
-    X: :rock,
-    Y: :paper,
-    Z: :scissors
-  }
-
   def initialize(data)
     @data = data
   end
@@ -32,8 +23,8 @@ class DayTwo
   def parsed
     @parsed ||= data.collect do |line|
       moves = line.split(/\s/, 2)
-      moves.collect! { |move| CODE[move.to_sym] }
-      Round.new(*moves)
+      strat = Strategy.new(*moves)
+      Round.new(strat.their_move, strat.my_move)
     end
   end
 end
