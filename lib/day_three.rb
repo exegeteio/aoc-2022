@@ -10,7 +10,10 @@ class DayThree
   end
 
   def part_one
-    "Not yet implemented!"
+    data.collect do |contents|
+      ruck = Rucksack.new(contents)
+      Score.new(ruck.dupe_item).value
+    end.sum
   end
 
   def part_two

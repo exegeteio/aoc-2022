@@ -5,7 +5,9 @@ RSpec.describe DayThree do
 ") }
   subject { described_class.new(data) }
 
-  it "successfully solves part one"
+  it "successfully solves part one" do
+    expect(subject.part_one).to eq(157)
+  end
 
   it "successfully solves part two"
 end
