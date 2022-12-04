@@ -5,11 +5,15 @@ class DayThree
     attr_reader :contents
 
     def initialize(contents)
-      @contents = contents
+      @contents = contents.chars
     end
 
     def dupe_item
       (left & right).first
+    end
+
+    def dupe_with(ruck)
+      ruck.contents & contents
     end
 
     private
@@ -23,8 +27,7 @@ class DayThree
     end
 
     def compartments
-      contents.chars.each_slice(contents.length / 2).to_a
+      contents.each_slice(contents.length / 2).to_a
     end
-
   end
 end

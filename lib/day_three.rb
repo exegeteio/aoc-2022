@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Path: lib/day_three.rb
 # https://adventofcode.com/2022/day/3
 
@@ -10,13 +11,17 @@ class DayThree
   end
 
   def part_one
-    data.collect do |contents|
+    data.map do |contents|
       ruck = Rucksack.new(contents)
       Score.new(ruck.dupe_item).value
     end.sum
   end
 
   def part_two
-    "Not yet implemented!"
+    data.each_slice(3).map do |group|
+      Score.new(
+        DayThree::Group.new(group).badge
+      ).value
+    end.sum
   end
 end
